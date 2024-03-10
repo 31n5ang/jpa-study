@@ -18,12 +18,20 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Member member = new Member();
-            member.setUsername("C");
+            Team team = new Team();
+            team.setName("TeamA");
+            em.persist(team);
 
-            System.out.println("========");
+            Member member = new Member();
+            member.setUsername("member1");
             em.persist(member);
-            System.out.println("========");
+
+            //연관관계 편의 메소드 호출
+            team.addMember(member);
+
+            em.flush();
+            em.clear();
+
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
