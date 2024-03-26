@@ -3,7 +3,7 @@ package hellojpa;
 import javax.persistence.*;
 
 @Entity
-public class Member {
+public abstract class Member extends BaseEntity{
     @Id
     @GeneratedValue
     @Column(name = "MEMBER_ID")
@@ -17,6 +17,10 @@ public class Member {
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
+    //연관관계의 주인이므로 조인 칼럼
+    @OneToOne
+    @JoinColumn(name = "LOCKER_ID")
+    private Locker locker;
     public Member() {
 
     }
