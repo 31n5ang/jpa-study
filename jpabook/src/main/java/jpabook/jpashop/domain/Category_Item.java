@@ -1,2 +1,4 @@
-package jpabook.jpashop.domain;public class Category_Item {
+package jpabook.jpashop.domain;
+
+public class Category_Item {
 }
